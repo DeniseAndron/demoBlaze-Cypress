@@ -1,0 +1,25 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "first cypress project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeniseAndron/demoBlaze-Cypress.git"
+  },
+  "author": "Denisa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeniseAndron/demoBlaze-Cypress/issues"
+  },
+  "homepage": "https://github.com/DeniseAndron/demoBlaze-Cypress#readme",
+  "dependencies": {
+    "cypress": "^12.17.4"
+  },
+  "devDependencies": {
+    "cypress-xpath": "^2.0.1"
+  }
+}
