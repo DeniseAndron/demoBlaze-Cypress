@@ -1,5 +1,5 @@
-const { navigateTo } = require("../support/page_objects/navigationPage.cy")
-const { signUp } = require("../support/page_objects/signUpPage.cy")
+import { signUp } from "../../support/page_objects/signUpPage.cy"
+import { navigateTo } from "../../support/page_objects/navigationPage.cy"
 
 describe('Sign Up to Blaze', () => {
   beforeEach('open application',() => {
@@ -17,17 +17,8 @@ describe('Sign Up to Blaze', () => {
     //Navigate and sign up
     navigateTo.signUpMenu()
     signUp.signInWithUsernamePassword(username,password)
-    signUp.confirmPopUpModal(alertMessage)
-      
-    
-    
-
-   
-
-
-      
-
-  
+    cy.confirmPopup(alertMessage)
   
   })
+
 })

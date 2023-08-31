@@ -38,7 +38,7 @@ export class NavigationPage {
 
     homeMenu(){
         cy.get('.active > .nav-link')
-        .should('have.text','Home')
+        .should('have.text','Home (current)')
         .click()
     }
 

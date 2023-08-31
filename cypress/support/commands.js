@@ -38,3 +38,10 @@ Cypress.Commands.add('validateLink', () => {
     .and('contain','demo') //contain assert , partial text
     .and('not.contain', 'test') // negative testing
 })
+
+Cypress.Commands.add('confirmPopup', (text) => {
+        
+            cy.on('window:alert', (txt) => {
+                expect(txt).to.contains(text)
+            })
+})
