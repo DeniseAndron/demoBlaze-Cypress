@@ -32,16 +32,29 @@ Cypress.Commands.add('openHomePage', () => {
     cy.visit('https://www.demoblaze.com/')
 })
 
+Cypress.Commands.add('loginToApplication', () => {
+
+    const userCrendentials = {
+        "user": {
+            "email": Cypress.env("username"),
+            "password": Cypress.env("password")
+
+        }
+    }
+
+    return userCrendentials;
+})
+
 Cypress.Commands.add('validateLink', () => {
-    cy.url().should('include','demoblaze') //Assert include -> not equally
-    .and('eq', 'https://www.demoblaze.com/') //nequals, needs to be exact
-    .and('contain','demo') //contain assert , partial text
-    .and('not.contain', 'test') // negative testing
+    cy.url().should('include', 'demoblaze') //Assert include -> not equally
+        .and('eq', 'https://www.demoblaze.com/') //nequals, needs to be exact
+        .and('contain', 'demo') //contain assert , partial text
+        .and('not.contain', 'test') // negative testing
 })
 
 Cypress.Commands.add('confirmPopup', (text) => {
-        
-            cy.on('window:alert', (txt) => {
-                expect(txt).to.contains(text)
-            })
+
+    cy.on('window:alert', (txt) => {
+        expect(txt).to.contains(text)
+    })
 })

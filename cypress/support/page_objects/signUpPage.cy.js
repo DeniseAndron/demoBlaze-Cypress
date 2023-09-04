@@ -8,13 +8,13 @@ export class signUpPage {
 
     signInWithUsernamePassword(name, password) {
         // Type in the username
-        loginElements.singUsername().clear().type(name).should('have.value', name);
+        signUpElements.singUsername().clear().type(name).should('have.value', name);
 
         // Type in the password
-        loginElements.signPassword().type(password);
+        signUpElements.signPassword().type(password);
 
         // Click the sign up button
-        loginElements.signButton().click();
+        signUpElements.signButton().click();
     }
 
 

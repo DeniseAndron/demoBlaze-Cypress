@@ -1,4 +1,5 @@
-
+import { navigateTo } from "../../support/page_objects/navigationPage.cy"
+import { homeDash } from "../../support/page_objects/homePage.cy"
 
 
 describe('Add items to cart and check API response', () => {
@@ -8,9 +9,10 @@ describe('Add items to cart and check API response', () => {
 
   it('Navigate to dashboard and add Items to card, check API', () => {
     //We need to add it before the commands
-    cy.intercept('POST', 'https://api.demoblaze.com/viewcart').as('itemsCart')
+    cy.intercept('POST', Cypress.env('apiURL') + '/viewcart').as('itemsCart')
 
     const alertMessage = 'Product added'
+
     navigateTo.homeMenu()
     homeDash.clickOnItems('Samsung galaxy s6')
     homeDash.addItemToCart()
@@ -23,9 +25,10 @@ describe('Add items to cart and check API response', () => {
     //Navigate to cart and confirm the items were added
     navigateTo.cartMenu()
 
-    cy.wait('@itemsCart')
-    cy.get('@itemsCart').then (xhr => {
+    
+    cy.wait('@itemsCart').then (xhr => {
       console.log(xhr)
+      expect(xhr.response.statusCode).to.equal(200)
     })
 
   })
