@@ -18,7 +18,6 @@ export class signUpPage {
     }
 
 
-
 }
 
 export const signUp = new signUpPage()

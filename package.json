@@ -4,7 +4,10 @@
   "description": "first cypress project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "delete:reports": "rm -r cypress/results/* || true",
+    "prereport": "npm run delete:reports",
+    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,12 @@
     "cypress": "^12.17.4"
   },
   "devDependencies": {
-    "cypress-xpath": "^2.0.1"
+    "cypress-multi-reporters": "^1.6.3",
+    "cypress-xpath": "^2.0.1",
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "typescript": "^5.2.2"
   }
 }
