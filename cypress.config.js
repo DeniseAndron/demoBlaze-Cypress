@@ -5,17 +5,7 @@ module.exports = defineConfig({
   reporterOptions: {
     configFile: 'reporter-config.json',
   },
-  reporter: 'mochawesome',
-  reporterOptions: {
-    reportDir: 'cypress/results/mochawesome',
-    overwrite: false,
-    html: false,
-    json: true,
-  },
-  reporterEnabled: 'spec, mocha-junit-reporter',
-  mochaJunitReporterReporterOptions: {
-    mochaFile: 'cypress/results/results-[hash].xml',
-  },
+
   viewportHeightL: 1080,
   viewportWidth: 1920,
   video:false,

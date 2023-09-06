@@ -1,13 +1,17 @@
 {
-  "name": "cypress",
+  "name": "cypress-blaze",
   "version": "1.0.0",
   "description": "first cypress project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "delete:reports": "rm -r cypress/results/* || true",
+    "delete:reports": "rmdir /s /q cypress\\results > nul 2>&1",
     "prereport": "npm run delete:reports",
-    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json"
+    "mochawesome:merge":"npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
+    "junit:merge":"npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
+    "cypress:run": "npm run prereport && npx cypress run",
+    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
+    "cypress:e2e": "cypress run && npm run junit:merge && npm run mochawesome:merge"
   },
   "repository": {
     "type": "git",

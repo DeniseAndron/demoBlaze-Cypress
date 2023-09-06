@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-09-06T11:37:22.449Z",
+    "end": "2023-09-06T11:37:26.090Z",
+    "duration": 3641,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "08582949-6e2e-4903-a8d7-15407bda0feb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\signUP\\signUpTest.cy.js",
+      "file": "cypress\\e2e\\signUP\\signUpTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d1c6b4aa-b07b-4599-9aae-df5f9deac3e0",
+          "title": "Sign Up to Blaze",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sign up to the system, click on the alert",
+              "fullTitle": "Sign Up to Blaze Sign up to the system, click on the alert",
+              "timedOut": null,
+              "duration": 2045,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Navigate to site\n//Variables\nconst username = 'denisa';\nconst password = 'automation';\nconst alertMessage = 'This user already exist.';\n//Navigate and sign up\n_navigationPage.navigateTo.signUpMenu();\n_signUpPage.signUp.signInWithUsernamePassword(username, password);\ncy.confirmPopup(alertMessage);",
+              "err": {},
+              "uuid": "fc77f168-8653-4678-bdd5-acd794e84476",
+              "parentUUID": "d1c6b4aa-b07b-4599-9aae-df5f9deac3e0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fc77f168-8653-4678-bdd5-acd794e84476"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2045,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
