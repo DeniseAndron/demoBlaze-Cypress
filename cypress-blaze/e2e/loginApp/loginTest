@@ -1,0 +1,24 @@
+import { login } from "../../support/page_objects/loginPage.cy"
+import { navigateTo } from "../../support/page_objects/navigationPage.cy"
+
+describe('Sign Up to Blaze', () => {
+  beforeEach('open application',() => {
+    cy.openHomePage()
+  })
+
+
+  it('Sign up to the system, click on the alert', () => {
+    //Navigate to site
+    //Variables
+    const username = userCreentials.username
+    const password = userCredentials.password
+    const alertMessage = 'User does nost exist.'
+
+    //Navigate and sign up
+    navigateTo.loginMenu()
+    login.loginInWithUsernamePassword(username,password)
+    cy.confirmPopup(alertMessage)
+  
+  })
+
+})
