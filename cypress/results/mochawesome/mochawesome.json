@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-09-06T11:37:12.348Z",
+    "end": "2023-09-06T11:37:20.628Z",
+    "duration": 8280,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6fa393ca-c2b2-416b-8a57-3abf8dadb87a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cart-addition\\cart-additionTest.cy.js",
+      "file": "cypress\\e2e\\cart-addition\\cart-additionTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "59747d10-5600-4198-9ba3-0244988b0ace",
+          "title": "Add items to cart and check API response",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to dashboard and add Items to card, check API",
+              "fullTitle": "Add items to cart and check API response Navigate to dashboard and add Items to card, check API",
+              "timedOut": null,
+              "duration": 6154,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//We need to add it before the commands\ncy.intercept('POST', Cypress.env('apiURL') + '/viewcart').as('itemsCart');\nconst alertMessage = 'Product added';\n_navigationPage.navigateTo.homeMenu();\n_homePage.homeDash.clickOnItems('Samsung galaxy s6');\n_homePage.homeDash.addItemToCart();\ncy.confirmPopup(alertMessage);\n_navigationPage.navigateTo.homeMenu();\n_homePage.homeDash.clickOnItems('Nokia lumia 1520');\n_homePage.homeDash.addItemToCart();\ncy.confirmPopup(alertMessage);\n//Navigate to cart and confirm the items were added\n_navigationPage.navigateTo.cartMenu();\ncy.wait('@itemsCart').then(xhr => {\n  console.log(xhr);\n  expect(xhr.response.statusCode).to.equal(200);\n});",
+              "err": {},
+              "uuid": "322f4235-92e6-4b0b-9f83-2f99e3f8ff9b",
+              "parentUUID": "59747d10-5600-4198-9ba3-0244988b0ace",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "322f4235-92e6-4b0b-9f83-2f99e3f8ff9b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6154,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
